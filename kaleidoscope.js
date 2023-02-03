@@ -101,31 +101,15 @@ const showKaleidoscope = (baseImg, baseRImg) => {
 };
 
 window.addEventListener('load', function () {
-  showKaleidoscope(generatePattern(), generatePattern());
-  // const imageInput = document.getElementById('getImage');
-  // let image;
-  // imageInput.onchange = (event) => {
-  //   image = URL.createObjectURL(event.target.files[0]);
-  //   console.log({ image });
-  //   var baseImg = document.getElementById('base');
-  //   baseImg.src = image;
-  //   baseImg.addEventListener('load', () => {
-  //     showKaleidoscope(generatePattern(), generatePattern());
-  //   });
-  // };
+  const imageInput = document.getElementById('getImage');
+  let image;
+  imageInput.onchange = (event) => {
+    image = URL.createObjectURL(event.target.files[0]);
+    console.log({ image });
+    var baseImg = document.getElementById('base');
+    baseImg.src = image;
+    baseImg.addEventListener('load', () => {
+      showKaleidoscope(baseImg, baseImg);
+    });
+  };
 });
-
-const generatePattern = () => {
-  const pCanvas = document.getElementById('pattern');
-  const pContext = pCanvas.getContext('2d');
-  pContext.lineWidth = 4;
-  pContext.arc(25, 25, 10, 0, 2 * Math.PI);
-  pContext.stroke();
-  pContext.fill();
-  return pCanvas;
-};
-
-
-const changeColor=(canvas)=>{
-  
-}
