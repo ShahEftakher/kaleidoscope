@@ -101,31 +101,49 @@ const showKaleidoscope = (baseImg, baseRImg) => {
 };
 
 window.addEventListener('load', function () {
-  showKaleidoscope(generatePattern(), generatePattern());
-  // const imageInput = document.getElementById('getImage');
-  // let image;
-  // imageInput.onchange = (event) => {
-  //   image = URL.createObjectURL(event.target.files[0]);
-  //   console.log({ image });
-  //   var baseImg = document.getElementById('base');
-  //   baseImg.src = image;
-  //   baseImg.addEventListener('load', () => {
-  //     showKaleidoscope(generatePattern(), generatePattern());
-  //   });
-  // };
+  showKaleidoscope(generateRPattern(), generatePattern2());
+  // generatePattern2();
 });
 
 const generatePattern = () => {
-  const pCanvas = document.getElementById('pattern');
+  const pCanvas = document.createElement('canvas');
   const pContext = pCanvas.getContext('2d');
   pContext.lineWidth = 4;
-  pContext.arc(25, 25, 10, 0, 2 * Math.PI);
+  // pContext.arc(50, 50, 30, 0, 2 * Math.PI);
+  pContext.rect(0, 0, 50, 60);
+  pContext.fillStyle = 'cyan';
+  pContext.strokeStyle = 'green';
   pContext.stroke();
   pContext.fill();
+  // pContext.rotate(Math.PI / 180);
   return pCanvas;
 };
 
+const generateRPattern = () => {
+  const pCanvas = document.createElement('canvas');
+  const pContext = pCanvas.getContext('2d');
+  pContext.lineWidth = 4;
+  pContext.ellipse(25, 25, 120, 30, 10, 40, 120);
+  pContext.fillStyle = '#e63286';
+  pContext.strokeStyle = '#cb7ed9';
+  pContext.stroke();
+  pContext.fill();
 
-const changeColor=(canvas)=>{
-  
-}
+  return pCanvas;
+};
+
+const generatePattern2 = () => {
+  const pCanvas = document.createElement('canvas');
+  // const pCanvas = document.getElementById('c');
+  const pContext = pCanvas.getContext('2d');
+  pContext.lineWidth = 4;
+  pContext.ellipse(100, 100, 120, 30, 40, 40, 120);
+  pContext.fillStyle = '#de5b23';
+  pContext.strokeStyle = '#1ddb62';
+  pContext.stroke();
+  pContext.fill();
+
+  return pCanvas;
+};
+
+const changeColor = (canvas) => {};
